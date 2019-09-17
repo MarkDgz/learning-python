@@ -6,7 +6,7 @@ try:
 except:
     from urllib import quote
 
-cdir = r'C:\Users\Sabrina\Documents\StayGoldSpa\code' # Directory of files txt .
+cdir = r'C:\Users\github\Documents\code' # Directory of files txt .
 
 #os.listdir('.')
 #os.listdir(cdir)
