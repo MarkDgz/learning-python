@@ -4,7 +4,7 @@
 # 1. Add multiple watermarks in parts var
 # 2. Rotation grades from watermark text
 # 3. Font color  
-# Licence: MIT
+# Licence: GNU General Public License v3.0
 # Dev status: Latest Stable Version 1.1.0
 
 # # Required libraries
