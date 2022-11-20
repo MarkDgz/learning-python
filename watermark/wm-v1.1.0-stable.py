@@ -2,7 +2,7 @@
 # Description: Generate one image with watermark, base previous program wm.py v-1.0.0
 # Changes: 
 # 1. Add multiple watermarks in parts var
-# 2. Rotation grades from watermark text
+# 2. Rotation grades for watermark text
 # 3. Font color  
 # Licence: GNU General Public License v3.0
 # Dev status: Latest Stable Version 1.1.0
