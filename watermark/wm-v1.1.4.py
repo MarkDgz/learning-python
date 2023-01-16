@@ -1,11 +1,12 @@
-# Program:     wm.py based on  wm-v-1.1.0-stable.py
-# Description: Generate one image with watermark, base previous program wm.py v-1.0.0
+# Program:     wm.py based on previous wm-v-1.1.3-stable.py
+# Description: Generate one image with watermark, base previous program wm.py v-1.1.3
 # Changes: 
 # 1. Add multiple watermarks in parts var
 # 2. Rotation grades from watermark text
 # 3. Font color  
+# 4. Automatic Font size and watermar inclination grades depending on src img size
 # Licence: MIT
-# Dev status: Latest Stable Version 1.1.0
+# Dev status: Latest Stable Version 1.1.4
 
 # # Required libraries
 # python programs to support file and directory functions
