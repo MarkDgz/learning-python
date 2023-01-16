@@ -1,11 +1,12 @@
-# Program:     wm-v-1.1.3-stable.py 
+# Program:     wm.py based on previous wm-v-1.1.3-stable.py
 # Description: Generate one image with watermark, base previous program wm.py v-1.1.3
 # Changes: 
 # 1. Add multiple watermarks in parts var
-# 2. Rotation grades for watermark text
+# 2. Rotation grades from watermark text
 # 3. Font color  
-# Licence: GNU General Public License v3.0
-# Dev status: Latest Stable Version 1.1.3
+# 4. Automatic Font size and watermar inclination grades depending on src img size
+# Licence: MIT
+# Dev status: Latest Stable Version 1.1.4
 
 # # Required libraries
 # python programs to support file and directory functions
@@ -24,7 +25,7 @@ def gen_t_image( iimg, isize ):
     # Open new image objetc from parameters
     rgba = iimg.convert("RGBA")
     datas = rgba.getdata()
-
+    
     newData = []
     for item in datas:
         if item[0] == 0 and item[1] == 0 and item[2] == 0:  # Finding black colour by its RGB value
@@ -92,22 +93,21 @@ def gen_wm(name, parts, rotateg, bkgcolor, fcolor, original_image, original_imag
 
 #Parameters
 #font = ImageFont.truetype('Impacted2.0.ttf', fontzise)
-#text  = "https://staygoldcrypto/shop"
-if len(sys.argv) == 2:
+#text  = "staygoldcrypto.com/shop"
+if len(sys.argv):
     text = sys.argv[1]
 else:
-    print("Put the Watermark Text as Parameter")
-    quit()
-path  = ["inp-img", "out-img"]
-font = ImageFont.truetype('Impacted2.0.ttf', 25)
-margin = 50
+    print("Put the Watermark Text as Paremeter, poner la marca de agua como paramentro")
 
 # --- Watermark Params ---
+path  = ["inp-img", "out-img"]
 parts = 6
 grades = 30
 fontcolor = (255,255,255,126)
 backgcolor = (0,0,0,0)
-fontzise = 19
+fontzise = 50
+font = ImageFont.truetype('Impacted2.0.ttf', fontzise)
+margin = 50
 
 # Check whether the specified path exists or not
 for dpath in path:
@@ -133,6 +133,31 @@ for filex in dir:
     ###im = Image.open(nfile)
     im = Image.open(nfile).convert("RGBA")
     width, height = im.size
+    ratio = 1.0
+    if  height != 0:
+        ratio = width / height
+
+    if ratio >= 1.00:
+         grades = 25
+    else:
+         if ratio == 1.00:
+              grades = 45
+         else:
+              if ratio < 1.00:
+                   grades = 30
+
+    if width <= 768:
+        fontzise = 25
+    else:
+        if width <= 1024:
+            fontzise = 30
+        else:
+            if width <= 2500:
+                fontzise = 50
+            else:
+                fontzise = 150
+
+    font = ImageFont.truetype('Impacted2.0.ttf', fontzise)
 
     xoriginal_image = im
     xoriginal_image_size = xoriginal_image.size
