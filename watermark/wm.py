@@ -153,7 +153,7 @@ for filex in dir:
             fontzise = 30
         else:
             if width <= 2500:
-                fontzise = 50
+                fontzise = 85
             else:
                 fontzise = 150
 
