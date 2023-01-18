@@ -141,7 +141,7 @@ for filex in dir:
          grades = 25
     else:
          if ratio == 1.00:
-              grades = 45
+              grades = 35
          else:
               if ratio < 1.00:
                    grades = 30
